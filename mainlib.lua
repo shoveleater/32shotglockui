@@ -73,7 +73,7 @@ local function generateRandomString(length)
     return randomString
 end
 local randomString = generateRandomString(12)
-getgenv().uiname = generateRandomString(5)
+getgenv().uiname = randomString
 
 
 utility.dragify = function(ins,touse)
@@ -160,7 +160,7 @@ function library:new(props)
 	local screen = utility.new(
 		"ScreenGui",
 		{
-			Name = randomstring,
+			Name = randomString,
 			DisplayOrder = 9999,
 			ResetOnSpawn = false,
 			ZIndexBehavior = "Global",
