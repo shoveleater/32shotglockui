@@ -557,8 +557,8 @@ local function generateRandomString(length)
     
     return randomString
 end
-
-getgenv().uiname = generateRandomString(99)
+local randomString = generateRandomString(12)
+getgenv().uiname = randomString
 
 
 function library:loader(props)
@@ -571,7 +571,7 @@ function library:loader(props)
 	local screen = utility.new(
 		"ScreenGui",
 		{
-			Name = getgenv().uiname,
+			Name = randomString,
 			DisplayOrder = 9999,
 			ResetOnSpawn = false,
 			ZIndexBehavior = "Global",
