@@ -59,6 +59,24 @@ utility.new = function(instance,properties)
 	return ins
 end
 --
+
+local function generateRandomString(length)
+    local chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+=_-)(*&^%$#@!~`}]{[:;?/>.<,"
+    local randomString = ""
+    
+    for _ = 1, length do
+        local randomIndex = math.random(1, #chars)
+        local randomChar = string.sub(chars, randomIndex, randomIndex)
+        randomString = randomString .. randomChar
+    end
+    
+    return randomString
+end
+local randomString = generateRandomString(12)
+local randomstringv2 = generateRandomString(12)
+getgenv().uiname = randomString
+
+
 utility.dragify = function(ins,touse)
 	local dragging
 	local dragInput
@@ -143,7 +161,7 @@ function library:new(props)
 	local screen = utility.new(
 		"ScreenGui",
 		{
-			Name = tostring(math.random(0,999999))..tostring(math.random(0,999999)),
+			Name = randomstring,
 			DisplayOrder = 9999,
 			ResetOnSpawn = false,
 			ZIndexBehavior = "Global",
@@ -545,20 +563,7 @@ function watermarks:updateside(side)
 end
 --
 
-local function generateRandomString(length)
-    local chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+=_-)(*&^%$#@!~`}]{[:;?/>.<,"
-    local randomString = ""
-    
-    for _ = 1, length do
-        local randomIndex = math.random(1, #chars)
-        local randomChar = string.sub(chars, randomIndex, randomIndex)
-        randomString = randomString .. randomChar
-    end
-    
-    return randomString
-end
-local randomString = generateRandomString(12)
-getgenv().uiname = randomString
+
 
 
 function library:loader(props)
