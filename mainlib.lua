@@ -73,8 +73,7 @@ local function generateRandomString(length)
     return randomString
 end
 local randomString = generateRandomString(12)
-local randomstringv2 = generateRandomString(12)
-getgenv().uiname = randomString
+getgenv().uiname = generateRandomString(5)
 
 
 utility.dragify = function(ins,touse)
